@@ -2,9 +2,9 @@ import random
 import time
 import sys
 sys.path.append("..")
-from quick_sort.quick_sort import quick_sort_version1
-from quick_sort.quick_sort import quick_sort_version2
-from quick_sort.quick_sort import quick_sort_version3
+from quick_sort.quick_sort_increasing import quick_sort_increasing
+from quick_sort.quick_sort_random import quick_sort_random
+from quick_sort.quick_sort_median import quick_sort_median
 from heap_sort.heap_sort import heap_sort
 from merge_sort.merge_sort import merge_sort
 from radix_sort.radix_sort import radix_sort
@@ -32,7 +32,7 @@ def print_list(array3):
 def main():
     # Boolean value
     temp1=True
-    for n in range(10, 1001, 10):
+    for n in range(10, 5001, 500):
         array1 = generate_sorted_list(n)
         temp = array1 # So that the array3ays are not dynamically changed at runtime
         
@@ -85,21 +85,21 @@ def main():
 
                 if pivot_choice==1:
                     start_time = time.perf_counter() 
-                    quick_sort_version1(temp, 0, n - 1)
+                    quick_sort_increasing(temp)
                     end_time = time.perf_counter()
                     temp = array1 
                     f.write(f"{end_time - start_time:.10f}\n")
 
                 elif pivot_choice == 2:
                     start_time = time.perf_counter() 
-                    quick_sort_version2(temp, 0, n - 1)
+                    quick_sort_random(temp)
                     end_time = time.perf_counter()
                     temp = array1 
                     f.write(f"{end_time - start_time:.10f}\n")
 
                 else:
                     start_time = time.perf_counter() 
-                    quick_sort_version3(temp, 0, n - 1)
+                    quick_sort_median(temp)
                     end_time = time.perf_counter()
                     temp = array1
                     f.write(f"{end_time - start_time:.10f}\n")
@@ -156,21 +156,21 @@ def main():
                 f.write(f"{pivot_choice}\t")
                 if pivot_choice==1:
                     start_time = time.perf_counter() 
-                    quick_sort_version1(temp, 0, n - 1)
+                    quick_sort_increasing(temp)
                     end_time = time.perf_counter()
                     temp = array2 
                     f.write(f"{end_time - start_time:.10f}\n")
 
                 elif pivot_choice==2:
                     start_time = time.perf_counter() 
-                    quick_sort_version2(temp, 0, n - 1)
+                    quick_sort_random(temp)
                     end_time = time.perf_counter()
                     temp = array2
                     f.write(f"{end_time - start_time:.10f}\n")
 
                 else:
                     start_time = time.perf_counter() 
-                    quick_sort_version3(temp, 0, n - 1)
+                    quick_sort_median(temp)
                     end_time = time.perf_counter()
                     temp = array2 
                     f.write(f"{end_time - start_time:.10f}\n")
@@ -229,21 +229,21 @@ def main():
 
                 if pivot_choice==1:
                     start_time = time.perf_counter() 
-                    quick_sort_version1(temp, 0, n - 1)
+                    quick_sort_increasing(temp)
                     end_time = time.perf_counter()
                     temp = array3 
                     f.write(f"{end_time - start_time:.10f}\n")
 
                 elif pivot_choice==2:
                     start_time = time.perf_counter() 
-                    quick_sort_version2(temp, 0, n - 1)
+                    quick_sort_random(temp)
                     end_time = time.perf_counter()
                     temp = array3 
                     f.write(f"{end_time - start_time:.10f}\n")
 
                 else:
                     start_time = time.perf_counter() 
-                    quick_sort_version3(temp, 0, n - 1)
+                    quick_sort_median(temp)
                     end_time = time.perf_counter()
                     temp = array3 
                     f.write(f"{end_time - start_time:.10f}\n")

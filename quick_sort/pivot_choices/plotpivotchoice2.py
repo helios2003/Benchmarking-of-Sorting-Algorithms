@@ -7,20 +7,20 @@ times_sorted = []
 times_rev_sorted = []
 times_random = []
 
-with open('csv files/time_data_qs_inc.csv', 'r') as f:
+with open('../csv files/time_data_qs_inc.csv', 'r') as f:
     reader = csv.reader(f, delimiter='\t') # as headers in a .csv file are separated by tabs
     next(reader) # skip the header row
     for row in reader:
         if row[1]=='2':
             input_size.append(row[0])
             times_sorted.append(float(row[2]))
-with open('csv files/time_data_qs_ran.csv', 'r') as f:
+with open('../csv files/time_data_qs_ran.csv', 'r') as f:
     reader = csv.reader(f, delimiter='\t') # as headers in a .csv file are separated by tabs
     next(reader) # skip the header row
     for row in reader:
         if row[1]=='2':
             times_random.append(float(row[2]))
-with open('csv files/time_data_qs_dec.csv', 'r') as f:
+with open('../csv files/time_data_qs_dec.csv', 'r') as f:
     reader = csv.reader(f, delimiter='\t') # as headers in a .csv file are separated by tabs
     next(reader) # skip the header row
     for row in reader:

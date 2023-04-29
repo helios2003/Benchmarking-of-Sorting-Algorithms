@@ -14,7 +14,7 @@ with open('../insertion_sort/csv files/time_data_is_inc.csv', 'r') as f:
     reader = csv.reader(f, delimiter='\t') # as headers in a .csv file are separated by tabs
     next(reader) # skip the header row
     for row in reader:
-        input_size.append(row[0])
+        input_size.append(float(row[0]))
         times_is.append(float(row[1]))
 
 with open('../merge_sort/csv files/time_data_ms_inc.csv', 'r') as f:

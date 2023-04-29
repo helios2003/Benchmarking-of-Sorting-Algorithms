@@ -12,13 +12,11 @@ in the sorted array.
 import random
 
 def quick_sort_version1(arr, low, high):
-    count = 0
     if low < high:
         pivot = arr[low]
         pivot_idx = partition(arr, low, high, pivot)
         quick_sort_version1(arr, low, pivot_idx - 1)
         quick_sort_version1(arr, pivot_idx + 1, high)
-    return count
 
 def quick_sort_version2(arr, low, high):
     if low < high:
@@ -38,16 +36,38 @@ def quick_sort_version3(arr, low, high):
         quick_sort_version3(arr, low, pivot_idx - 1)
         quick_sort_version3(arr, pivot_idx + 1, high)
 
+def quick_sort_version3(arr, low, high):
+    if low < high:
+        pi = partition(arr, low, high)
+        quick_sort_version3(arr, low, pi - 1)
+        quick_sort_version3(arr, pi + 1, high)
+
+def get_median(arr, low, high):
+    mid = (low + high) // 2
+    if arr[low] <= arr[mid] <= arr[high] or arr[high] <= arr[mid] <= arr[low]:
+        return mid
+    elif arr[mid] <= arr[low] <= arr[high] or arr[high] <= arr[low] <= arr[mid]:
+        return low
+    else:
+        return high
 
 def partition(arr, low, high, pivot):
-    pivot_idx = arr.index(pivot)
-    arr[pivot_idx], arr[high] = arr[high], arr[pivot_idx]
-    i = low - 1
-    for j in range(low, high):
-        if arr[j] < pivot:
-            1
-            i += 1
-            arr[i], arr[j] = arr[j], arr[i]
-    arr[i + 1], arr[high] = arr[high], arr[i + 1]
-    return i + 1
+    pivot_index = get_median(arr, low, high)
+    arr[pivot_index], arr[low] = arr[low], arr[pivot_index]
 
+    i = low + 1
+    j = high
+
+    while True:
+        while i <= j and arr[i] <= pivot:
+            i += 1
+        while i <= j and arr[j] >= pivot:
+            j -= 1
+
+        if i <= j:
+            arr[i], arr[j] = arr[j], arr[i]
+        else:
+            break
+
+    arr[low], arr[j] = arr[j], arr[low]
+    return j
