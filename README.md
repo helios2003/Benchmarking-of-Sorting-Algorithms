@@ -11,8 +11,8 @@ After cloning the repository navigate to the root directory of the project.<br /
 * Since there is data present in the csv files hence execute ```src/python flush.py``` before running the code. 
 * The csv files present for each sorting algorithm contains the input size and the time taken for sorting for all the three types of arrays i.e. increasing array, randomly generated array and decreasing array.
 * Execute ```src/python test_cases.py``` for generating the csv files.
-* Navigate to the ```quick_sort``` folder and run each of the ```quick_sort_increasing.py```, ```quick_sort_random.py``` and ```quick_sort_median.py``` files to generate the graphs which compare the performance of quick sort in the 3 different choice of pivots.
-* avigate to the ```Q3``` and execute the files in the folder to see the performance of quick sort algorithm in different cases.
+* Navigate to the ```Q3``` folder and run each of the ```qs_avg_case.py```, ```quick_best_case.py``` and ```quick_worst_case.py``` files to generate the graphs which compare the performance of quick sort in the 3 different choice of pivots.
+* Navigate to the ```Q3``` and execute the files in the folder to see the performance of quick sort algorithm in different cases.
 * Navigate to the ```Q4``` and execute the files in the folder to see the performance of each algorithm vs the other in different cases.
 * Final_Report.pdf has the answers to all the questions provided in the assignment.
 > **_NOTE:_**  After completing the visualisation make sure to run ```flush.py``` otherwise the programs run into errors.
